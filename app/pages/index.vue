@@ -1,10 +1,10 @@
 <script setup lang="ts">
     interface Book {
-        id: number
-        title: string
-        author: string
-        status: string
-        rating: number
+        id: number;
+        title: string;
+        author: string;
+        status: string;
+        rating: number;
     }
 
     const books: Book[] = [
