@@ -16,6 +16,7 @@
 
 <template>
     <div>
+        <NuxtLink to="/movies">映画一覧ページへ</NuxtLink>
         <h1>本の一覧</h1>
         <DataTable :value="books">
             <Column field="title" header="タイトル" />
