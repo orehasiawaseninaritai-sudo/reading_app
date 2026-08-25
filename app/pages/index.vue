@@ -21,8 +21,16 @@
         <DataTable :value="books">
             <Column field="title" header="タイトル" />
             <Column field="author" header="著者" />
-            <Column field="status" header="ステータス" />
-            <Column field="rating" header="評価" />
+            <Column field="status" header="ステータス">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.status" severity="info" />
+                </template>
+            </Column>
+            <Column field="rating" header="評価">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
         </DataTable>
     </div>
 </template>

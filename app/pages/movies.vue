@@ -22,8 +22,16 @@
         <DataTable :value="movies">
             <Column field="title" header="タイトル" />
             <Column field="director" header="監督" />
-            <Column field="status" header="ステータス" />
-            <Column field="rating" header="評価" />
+            <Column field="status" header="ステータス">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.status" severity="info" />
+                </template>
+            </Column>
+            <Column field="rating" header="評価">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
         </DataTable>
     </div>
     
