@@ -13,6 +13,15 @@
         { id: 3, title: 'すずめの戸締まり', director: '新海誠', status: '未視聴', rating: 0}
     ]
 
+    const getColor = (status: string): string => {
+        if(status === '視聴済み') {
+            return 'success';
+        } else if(status === '視聴中') {
+            return 'info';
+        } else {
+            return 'secondary';
+        }
+    }
 </script>
 
 <template>
@@ -24,7 +33,7 @@
             <Column field="director" header="監督" />
             <Column field="status" header="ステータス">
                 <template #body="slotProps">
-                    <Tag :value="slotProps.data.status" severity="info" />
+                    <Tag :value="slotProps.data.status" :severity="getColor(slotProps.data.status)" />
                 </template>
             </Column>
             <Column field="rating" header="評価">

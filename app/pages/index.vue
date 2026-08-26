@@ -12,6 +12,16 @@
         { id: 2, title: 'ノルウェイの森', author: '村上春樹', status: '読書中', rating: 5 },
         { id: 3, title: '銀河鉄道の夜', author: '宮沢賢治', status: '未読', rating: 0 },
     ]
+
+    const getColor = (status: string): string => {
+        if(status === '読了') {
+            return 'success';
+        } else if(status === '読書中') {
+            return 'info';
+        } else {
+            return 'secondary';
+        }
+    }
 </script>
 
 <template>
@@ -23,7 +33,7 @@
             <Column field="author" header="著者" />
             <Column field="status" header="ステータス">
                 <template #body="slotProps">
-                    <Tag :value="slotProps.data.status" severity="info" />
+                    <Tag :value="slotProps.data.status" :severity="getColor(slotProps.data.status)" />
                 </template>
             </Column>
             <Column field="rating" header="評価">
