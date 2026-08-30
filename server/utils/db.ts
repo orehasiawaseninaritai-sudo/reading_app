@@ -7,5 +7,6 @@ export const pool = mysql.createPool({
     port: config.dbPort,
     user: config.dbUser,
     password: config.dbPassword,
-    database: config.dbName
+    database: config.dbName,
+    charset: 'UTF8MB4_GENERAL_CI'
 });
