@@ -4,10 +4,10 @@
         title: string;
         author: string;
         status: string;
-        rating: number;
+        rating: number | null;
     }
 
-    const { data: books } = await useFetch('/api/books');
+    const { data: books } = await useFetch<Book[]>('/api/books');
 
     const getColor = (status: string): string => {
         if(status === '読了') {

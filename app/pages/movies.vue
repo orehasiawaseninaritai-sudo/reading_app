@@ -4,10 +4,10 @@
         title: string;
         director: string;
         status: string;
-        rating: number;
+        rating: number | null;
     }
 
-    const { data: movies } = await useFetch('/api/movies'); 
+    const { data: movies } = await useFetch<Movie[]>('/api/movies'); 
 
     const getColor = (status: string): string => {
         if(status === '視聴済み') {
