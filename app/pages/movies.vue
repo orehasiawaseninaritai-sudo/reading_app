@@ -7,11 +7,7 @@
         rating: number;
     }
 
-    const movies: Movie[] = [
-        { id: 1, title: '千と千尋の神隠し', director: '宮崎駿', status: '視聴済み', rating: 5},
-        { id: 2, title: '君の名は', director: '新海誠', status: '視聴中', rating: 3},
-        { id: 3, title: 'すずめの戸締まり', director: '新海誠', status: '未視聴', rating: 0}
-    ]
+    const { data: movies } = await useFetch('/api/movies'); 
 
     const getColor = (status: string): string => {
         if(status === '視聴済み') {
@@ -37,7 +33,8 @@
             </Column>
             <Column field="rating" header="評価">
                 <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" readonly />
+                    <Rating v-if="slotProps.data.rating" :modelValue="slotProps.data.rating" readonly />
+                    <span v-else>未評価</span>
                 </template>
             </Column>
         </DataTable>

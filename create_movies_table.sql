@@ -1,0 +1,10 @@
+CREATE TABLE movies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    director VARCHAR(255) NOT NULL,
+    status ENUM('未視聴', '視聴中', '視聴済み') NOT NULL,
+    rating INT DEFAULT 0,
+    comment TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

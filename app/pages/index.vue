@@ -33,7 +33,8 @@
             </Column>
             <Column field="rating" header="評価">
                 <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" readonly />
+                    <Rating v-if="slotProps.data.rating" :modelValue="slotProps.data.rating" readonly />
+                    <span v-else>未評価</span>
                 </template>
             </Column>
         </DataTable>
