@@ -1,11 +1,5 @@
 <script setup lang="ts">
-    interface Movie {
-        id: number;
-        title: string;
-        director: string;
-        status: string;
-        rating: number | null;
-    }
+    import type { Movie } from '~/types/movie';
 
     const { data: movies } = await useFetch<Movie[]>('/api/movies'); 
 

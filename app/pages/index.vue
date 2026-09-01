@@ -1,11 +1,5 @@
 <script setup lang="ts">
-    interface Book {
-        id: number;
-        title: string;
-        author: string;
-        status: string;
-        rating: number | null;
-    }
+    import type { Book } from '~/types/book';
 
     const { data: books } = await useFetch<Book[]>('/api/books');
 
@@ -24,7 +18,11 @@
     <div>
         <h1>本の一覧</h1>
         <DataTable :value="books">
-            <Column field="title" header="タイトル" />
+            <Column field="title" header="タイトル">
+                <template #body="slotProps">
+                    <NuxtLink :to="`/books/${slotProps.data.id}`">{{ slotProps.data.title }}</NuxtLink>
+                </template>
+            </Column>
             <Column field="author" header="著者" />
             <Column field="status" header="ステータス">
                 <template #body="slotProps">
