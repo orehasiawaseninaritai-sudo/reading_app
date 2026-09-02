@@ -18,7 +18,11 @@
     <div>
         <h1>映画一覧</h1>
         <DataTable :value="movies">
-            <Column field="title" header="タイトル" />
+            <Column field="title" header="タイトル">
+                <template #body="slotProps">
+                    <NuxtLink :to="`/movies/${slotProps.data.id}`">{{ slotProps.data.title }}</NuxtLink>
+                </template>
+            </Column>
             <Column field="director" header="監督" />
             <Column field="status" header="ステータス">
                 <template #body="slotProps">
