@@ -16,6 +16,7 @@
 
 <template>
     <div>
+        <NuxtLink to="/books/new">新規登録</NuxtLink>
         <h1>本の一覧</h1>
         <DataTable :value="books">
             <Column field="title" header="タイトル">
