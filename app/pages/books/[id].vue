@@ -13,10 +13,12 @@
     });
 
     function startEdit() {
-            editForm.value.status = book.value.status;
-            editForm.value.rating = book.value.rating;
-            editForm.value.comment = book.value.comment;
-            isEditing.value = true;
+        if (!book.value) return;
+
+        editForm.value.status = book.value.status;
+        editForm.value.rating = book.value.rating ?? 0;
+        editForm.value.comment = book.value.comment ?? '';
+        isEditing.value = true;
     }
 
     async function save() {
