@@ -34,7 +34,7 @@
     </div>
     <div>
         <label for="rating">評価</label>
-        <Rating v-model="form.rating" id="rating" />
+        <Rating v-model="form.rating" :min="1" :max="5" id="rating" />
     </div>
     <div>
         <label for="comment">コメント</label>
