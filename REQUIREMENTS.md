@@ -33,7 +33,7 @@
 
 ### users（認証用）
 
-- 実装方式は未定（[CLAUDE.md](./CLAUDE.md)の未定事項を参照）
+- 実装方式: Firebase Authentication（詳細は[CLAUDE.md](./CLAUDE.md)を参照）
 - id, email などを想定
 
 ## MVP機能一覧
