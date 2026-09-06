@@ -16,7 +16,6 @@
         await navigateTo('/')
     }
 
-
 </script>
 
 <template>

@@ -30,7 +30,14 @@
         isEditing.value = false;
     }
 
+    async function remove() {
+        if (!confirm('本当に削除しますか？')) return;
 
+        await $fetch(`/api/books/${route.params.id}`, {
+            method: 'DELETE',
+        });
+        await navigateTo('/');
+    }
 </script>
 
 <template>
@@ -42,6 +49,7 @@
             <p>評価： {{ book.rating }}</p>
             <p>コメント： {{ book.comment }}</p>
             <Button label="編集" @click="startEdit" />
+            <Button label="削除" @click="remove" />
         </div>
 
         <div v-else>
